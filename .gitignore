@@ -1,0 +1,5 @@
+staticfiles
+*.pyc
+*.DS_STORE
+*.swp
+
