@@ -56,8 +56,7 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Summer 2015</a></li>
+                        <li class="active"><a href="#">Summer 2015 <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Winter 2015</a></li>
                     </ul>
                 </div>
@@ -70,7 +69,7 @@
                                     Filter Fields
                                     <b class="caret"></b>
                                 </a>
-                                <ul class="dropdown-menu stop-propagation" style="overflow:auto;max-height:450px;padding:10px;">
+                                <ul class="dropdown-menu stop-propagation" style="overflow:auto;max-height:450px;padding-left:25px;">
                                     <div id="filter-list"></div>
                                 </ul>
                             </li>
@@ -125,6 +124,7 @@
                 {name: 'Reviews', type: 'integer', filterable: true},
                 {name: 'Yelp', type: 'string', filterable: false},
             ]
+            /*
 
             function setupPivot(input){
                 input.callbacks = {afterUpdateResults: function(){
@@ -137,17 +137,17 @@
                             }
                             });
                 }};
-                $('#pivot-demo').pivot_display('setup', input);
+                $('#results').pivot_display('setup', input);
             };
-            $(document).ready(function() {
-                //pivot.init({url: "{% static 'csv/2015.csv' %}", fields: fields});
-                setupPivot({url: "{% static 'csv/2015.csv' %}", fields: fields});
-                //$('#results').pivotDisplay('setup', {url: "{% static 'csv/2015.csv' %}", fields: fields});
+            //pivot.init({url: "{% static 'csv/2015.csv' %}", fields: fields});
+            setupPivot({url: "{% static 'csv/2015.csv' %}", fields: fields});
+            */
+            $('#results').pivot_display('setup', {url: "{% static 'csv/2015.csv' %}", fields: fields, 
+                    rowLabels: ["Title", "Cuisine", "Area", "Reviews", "Rating"]});
 
-                // prevent dropdown from closing after selection
-                $('.stop-propagation').click(function(event){
-                      event.stopPropagation();
-                  });
+            // prevent dropdown from closing after selection
+            $('.stop-propagation').click(function(event){
+                  event.stopPropagation();
             });
         </script>
 
